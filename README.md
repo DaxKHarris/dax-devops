@@ -1,2 +1,2 @@
 # dax-devops
-My perosnal DevOps-ready portfolio
+My personal DevOps-ready portfolio
