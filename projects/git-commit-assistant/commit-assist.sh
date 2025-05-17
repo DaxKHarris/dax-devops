@@ -24,7 +24,13 @@ read -p "Short commit message: " message
 # Step 4: Save to local log file
 
 timestamp=$(date "+%Y-%m-%d %H:%M:%S")
-logfile="$HOME/.commit-log.txt"
+repo_root=$(git rev-parse --show-toplevel)
+if [[ -z "$repo_root" ]]; then
+    echo "Not inside a Git repository"
+    exit 1
+fi
+
+logfile="$repo_root/logs/.commit-log.txt"
 
 echo "[$timestamp][$opt] $message" >> "$logfile" && echo "Logging completed!"
 
@@ -34,6 +40,6 @@ echo "Commited: $message"
 
 # Step 6: Push
 
-git push
+#git push
 
 
