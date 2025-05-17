@@ -40,6 +40,6 @@ echo "Commited: $message"
 
 # Step 6: Push
 
-#git push
+git push
 
 

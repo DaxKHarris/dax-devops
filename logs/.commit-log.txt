@@ -3,3 +3,4 @@
 [2025-05-17 11:08:33][Bugfix] Fixing log writing
 [2025-05-17 11:10:36][Feature] Pushing completed git assistant
 [2025-05-17 11:11:07][Feature] Pushing completed git assistant
+[2025-05-17 11:23:28][Other] Changed logfile location into repo.
