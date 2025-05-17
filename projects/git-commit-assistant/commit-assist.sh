@@ -26,7 +26,7 @@ read -p "Short commit message: " message
 timestamp=$(date "+%Y-%m-%d %H:%M:%S")
 logfile="$HOME/.commit-log.txt"
 
-echo "[$timestamp][$category] $message" >> "$logfile"
+echo "[$timestamp][$category] $message" >> "$logfile" && echo "Logging completed!"
 
 # Step 5: Commit
 git commit -m "$message"
