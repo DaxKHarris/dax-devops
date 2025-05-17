@@ -5,3 +5,4 @@
 [2025-05-17 11:11:07][Feature] Pushing completed git assistant
 [2025-05-17 11:23:28][Other] Changed logfile location into repo.
 [2025-05-17 11:24:27][Other] Finalized git assistant and pushing
+[2025-05-17 11:33:08][Feature] Testing alias for ease of use

@@ -30,7 +30,7 @@ if [[ -z "$repo_root" ]]; then
     exit 1
 fi
 
-logfile="$repo_root/logs/.commit-log.txt"
+logfile="$repo_root/logs/git-assistant/.commit-log.txt"
 
 echo "[$timestamp][$opt] $message" >> "$logfile" && echo "Logging completed!"
 
