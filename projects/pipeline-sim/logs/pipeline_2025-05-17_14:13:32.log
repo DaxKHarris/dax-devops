@@ -1,0 +1,11 @@
+[1;33m Pulling latest code...[0m
+Already up to date.
+[0:32m Git pull succeeded[0m
+[1;33m Running tests....[0m
+Running test suite...
+[0:32m Tests succeeded[0m
+All tests passed.
+tar: The following options were used after non-option arguments.  These options are positional and affect only arguments that follow them.  Please, rearrange them properly.
+tar: --exclude ‘logs’ has no effect
+tar: --exclude ‘build’ has no effect
+tar: Exiting with failure status due to previous errors
