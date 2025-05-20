@@ -30,6 +30,17 @@ status() {
 
 }
 
+test() {
+    log "Running tests!"
+    if [ -f fail_tests.flag ]; then
+        log "${YELLOW}Tests failed.${NC}"
+        return 1
+    else
+        log "Tests passed!"
+        return 0
+    fi
+}
+
 # ==== Update DB ====
 
 log "${YELLOW} Pulling latest code...${NC}"
@@ -38,13 +49,8 @@ status $? "Git pull"
 
 # ==== Run tests ====
 
-log "${YELLOW} Running tests....${NC}"
-# === Not actually running tests ===
-
-log "Running test suite..."
-sleep 1
+test 
 status 0 "Tests"
-log "All tests passed."
 
 # === Set up the build ===
 
