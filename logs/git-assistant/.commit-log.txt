@@ -11,3 +11,4 @@
 [2025-05-18 12:13:44][Feature] Used docker to create my first container!
 [2025-05-19 23:18:00][Feature] Created a test function in pipeline sim.
 [2025-05-20 22:54:53][Feature] Updated tests to a seperate sh file.
+[2025-05-20 23:11:15][Feature] Created sh for automatic docker build
