@@ -1,6 +1,6 @@
 FROM alpine:latest
 RUN apk add --no-cache bash git tar openssh
-WORKDIR /pipeline
+WORKDIR /pipeline/projects/pipeline-sim
 RUN mkdir -p ~/.ssh && \
     ssh-keyscan github.com >> ~/.ssh/known_hosts
 COPY pipeline.sh .
