@@ -13,3 +13,4 @@
 [2025-05-20 22:54:53][Feature] Updated tests to a seperate sh file.
 [2025-05-20 23:11:15][Feature] Created sh for automatic docker build
 [2025-05-20 23:21:30][Bugfix] Fixed a typo. Added a script to automate docker.
+[2025-05-20 23:58:30][Feature] Added a nice little menu for more precise action.
