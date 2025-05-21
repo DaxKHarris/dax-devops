@@ -1,0 +1,13 @@
+Deploy was chosen!
+[1;33m Pulling latest code...[0m
+Already up to date.
+[0:32m Git pull succeeded[0m
+[1;33m Beginning test stage.[0m
+[0:32m Tests succeeded[0m
+tar: Removing leading `/' from member names
+[0:32m build succeeded[0m
+[1;33m Copying rollback.[0m
+Reason: from_deploy
+[0:32m rollback succeeded[0m
+[1;33m Deploying artifact...[0m
+[0:32m deploy succeeded[0m

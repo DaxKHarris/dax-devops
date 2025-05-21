@@ -16,6 +16,29 @@ repo_root=$(git rev-parse --show-toplevel)
 
 mkdir -p "$log_dir" "$build_dir" "$deploy_dir" "$rollback"
 
+show_menu() {
+    echo "What function do you need?"
+    options=("Deploy" "Rollback" "Exit")
+    select opt in "${options[@]}"
+    do
+    log "${opt} was chosen!"
+        case $opt in
+            "Deploy")
+                break
+                ;;
+            "Rollback")
+                rollback from_menu
+                ;;
+                "Exit")
+                exit 0
+                ;;
+            *)
+                echo "Invalid option"
+                ;;
+        esac
+    done
+}
+
 log() {
     echo -e "$1" | tee -a "$log_file"
 }
@@ -30,10 +53,33 @@ status() {
 
 }
 
+rollback() {
+    reason=$1
+    log "${YELLOW} Copying rollback.${NC}"
+    log "Reason: ${reason}"
+    shopt -s nullglob
+    files=("${deploy_dir}"/*)
+
+    if [ ${#files[@]} -gt 0 ]; then
+        mv "${deploy_dir}"/* "${rollback}" >> "$log_file" 2>&1
+        status $? "rollback"
+    else
+        log "${YELLOW}No deployed files to roll back.${NC}"
+    fi
+    shopt -u nullglob
+
+    if [ "$reason" = "from_menu" ]; then
+        show_menu
+    fi
+}
+
+
 test() {
     log "${YELLOW} Beginning test stage.${NC}"
     ./tests.sh || exit 1
 }
+
+show_menu
 
 # ==== Update DB ====
 
@@ -60,17 +106,8 @@ status $? "build"
 # === Deploy build ====
 
 # == Rolling back == 
-log "${YELLOW} Copying rollback${NC}"
-shopt -s nullglob
-files=("${deploy_dir}"/*)
 
-if [ ${#files[@]} -gt 0 ]; then
-    mv "${deploy_dir}"/* "${rollback}" >> "$log_file" 2>&1
-    status $? "rollback"
-else
-    log "${YELLOW}No deployed files to roll back.${NC}"
-fi
-shopt -u nullglob
+rollback from_deploy
 
 # == Deploying ==
 
