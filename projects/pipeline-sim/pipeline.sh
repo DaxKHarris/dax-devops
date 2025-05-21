@@ -31,14 +31,8 @@ status() {
 }
 
 test() {
-    log "Running tests!"
-    if [ -f fail_tests.flag ]; then
-        log "${YELLOW}Tests failed.${NC}"
-        return 1
-    else
-        log "Tests passed!"
-        return 0
-    fi
+    log "${YELLOW} Beginning test stage.${NC}"
+    ./tests.sh || exit 1
 }
 
 # ==== Update DB ====
